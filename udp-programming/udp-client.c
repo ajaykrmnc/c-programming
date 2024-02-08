@@ -56,11 +56,11 @@ void sendRequest(){
             exit(0);
         }else{
             sendto(socket_file_descriptor, message, MESSAGE_BUFFER, 0, (SA *)NULL, sizeof(serveraddress));
-            printf("Message sent successfully to the server: %s\n");
+            printf("Message sent successfully to the server: %s\n", message);
             printf("Waiting for the Response from Server... !\n");
         }
         printf("Message Received From Server: ");
-        recvfrom(socket_file_descriptor, buffer, sizeof(buffer), 0, (SA *)NULL, sizeof(serveraddress));
+        recvfrom(socket_file_descriptor, buffer, sizeof(buffer), 0, (SA *)NULL, NULL);
         printf("%s\n", buffer);
     }
     close(socket_file_descriptor);

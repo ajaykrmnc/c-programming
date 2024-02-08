@@ -24,6 +24,7 @@ const char *end_string = "end";
 int quit_status;
 
 struct sockaddr_in serveraddress, client;
+/// @brief 
 void processRequest(){
     // Server Properties 
     bzero(&serveraddress, sizeof(serveraddress));

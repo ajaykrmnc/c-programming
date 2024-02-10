@@ -70,3 +70,16 @@ int main(){
     close(socket_file_descriptor);
     return 0;
 }
+
+/*
+41
+
+Breakdown of scanf("%*[^\n]%*c"):
+
+%*[^\n] scans everything until a \n, but doesn't scan in the \n. The asterisk(*) tells it to discard whatever was scanned.
+%*c scans a single character, which will be the \n left over by %*[^\n] in this case. The asterisk instructs scanf to discard the scanned character.
+Both %[ and %c are format specifiers. You can see what they do here. The asterisks in both the specifiers tell scanf, not to store the data read by these format specifiers.
+
+As @chux commented below, it will clear a single line of the stdin (Standard Input Stream) up to and including the newline character. In your case, the line with invalid input gets cleared from the stdin.
+
+*/
